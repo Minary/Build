@@ -1,0 +1,10 @@
+
+# Directories to ignore
+Libs/
+Minary/
+Plugins/
+Tools/
+
+
+# Files to ignore
+
