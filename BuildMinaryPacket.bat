@@ -15,11 +15,14 @@ IF "%SECONDS:~0,1%" == " " set SECONDS=0%SECONDS:~1,1%
 
 SET TIMESTAMP=%YEAR%%MONTH%%DAY%_%HOURS%%MINUTES%%SECONDS%
 SET SOLUTIONCONFIG=%1
-SET ROOT_DIR=..\Minary\
+:: SET ROOT_DIR=..\Minary\
+SET ROOT_DIR=.\
+SET MINARY_DIR=Minary\
 SET BUILD_DIR=BUILDS\%SOLUTIONCONFIG%\%TIMESTAMP%\
 SET ATTACKSERVICES_DIR=%BUILD_DIR%\attackservices\
 
 CLS
+
 ECHO BUILD_DIR: %BUILD_DIR%
 IF exist "%BUILD_DIR%" (
   echo The release %BUILD_DIR% exists already. Process aborted.
@@ -35,7 +38,7 @@ REM REM
 REM REM REM REM
 REM REM REM REM
 
-CALL BuildScripts\Minary.cmd :Initialization %SOLUTIONCONFIG% %ROOT_DIR% %BUILD_DIR% %ATTACKSERVICES_DIR%
+CALL BuildScripts\Minary.cmd :Initialization %SOLUTIONCONFIG% %MINARY_DIR% %BUILD_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL BuildScripts\Minary.cmd :CreateDirectoryStructure
@@ -44,7 +47,6 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 :: Copy Minary data
 CALL BuildScripts\Minary.cmd :CopyMinaryFiles 
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
-
 
 
 REM REM REM REM

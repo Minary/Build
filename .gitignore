@@ -4,7 +4,10 @@ Libs/
 Minary/
 Plugins/
 Tools/
+DEFAULT_DATA
+BUILDS
 
 
 # Files to ignore
+outer.txt # Keeps output from build scripts
 
