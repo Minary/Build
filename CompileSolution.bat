@@ -34,22 +34,22 @@ IF not exist "%MINARY_SOLUTION_FILE%" (
 
 
 ECHO Start building Minary solution
-msbuild %MINARY_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0
+msbuild %MINARY_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Plugins solution
-msbuild %PLUGINS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0
+msbuild %PLUGINS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Tools solution
-msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0
+msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Libs solution
-msbuild %LIBS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0
+msbuild %LIBS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
