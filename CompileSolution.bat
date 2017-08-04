@@ -9,6 +9,9 @@ SET PLUGINS_SOLUTION_FILE=Plugins\Plugins.sln
 SET TOOLS_SOLUTION_FILE=Tools\Tools.sln
 SET LIBS_SOLUTION_FILE=Libs\Libs.sln
 
+SET SOLUTIONCONFIG=%1
+
+IF "%~1" == "" GOTO :EXITUSAGE
 
 CLS
 
@@ -34,22 +37,23 @@ IF not exist "%MINARY_SOLUTION_FILE%" (
 
 
 ECHO Start building Minary solution
-msbuild %MINARY_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
+msbuild %MINARY_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Plugins solution
-msbuild %PLUGINS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
+msbuild %PLUGINS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Tools solution
-msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
+ECHO msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
+msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Libs solution
-msbuild %LIBS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=Release /p:WarningLevel=0 /verbosity:m
+msbuild %LIBS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
@@ -66,6 +70,15 @@ ECHO[
 ECHO[
 EXIT /B 1
 
+
+:EXITUSAGE
+ECHO[
+ECHO[
+ECHO[
+ECHO Usage: CompileSolution.bat DEBUG/RELEASE
+ECHO[
+ECHO[
+EXIT /B 1
 
 :END
 
