@@ -65,10 +65,6 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 CALL BuildScripts\Attackservices\ApeSniffer.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
-:: Copy ArpScan attack services data
-CALL BuildScripts\Attackservices\ArpScan.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
-IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
-
 :: Copy HttpReverseProxy attack services data
 CALL BuildScripts\Attackservices\HttpReverseProxy.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR

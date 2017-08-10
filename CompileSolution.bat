@@ -4,6 +4,8 @@ SET MSBuildCmd_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2017\Communi
 
 SET DOTNET_DIR=C:\windows\Microsoft.NET\Framework\v4.0.30319\
 SET MSBUILD=%DOTNET_DIR%msbuild.exe
+SET DOTNET_PLATFORM="Any CPU"
+SET CPP_PLATFORM=x86
 SET MINARY_SOLUTION_FILE=Minary\Minary.sln
 SET PLUGINS_SOLUTION_FILE=Plugins\Plugins.sln
 SET TOOLS_SOLUTION_FILE=Tools\Tools.sln
@@ -37,23 +39,23 @@ IF not exist "%MINARY_SOLUTION_FILE%" (
 
 
 ECHO Start building Minary solution
-msbuild %MINARY_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
+msbuild %MINARY_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Plugins solution
-msbuild %PLUGINS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
+msbuild %PLUGINS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Tools solution
-ECHO msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
-msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
+ECHO msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
+msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Libs solution
-msbuild %LIBS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /p:WarningLevel=0 /verbosity:m
+msbuild %LIBS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
