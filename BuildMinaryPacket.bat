@@ -61,8 +61,8 @@ REM REM REM REM
 CALL BuildScripts\Attackservices\Ape.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
-:: Copy ApeSniffer attack services data
-CALL BuildScripts\Attackservices\ApeSniffer.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
+:: Copy Sniffer attack services data
+CALL BuildScripts\Attackservices\Sniffer.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy HttpReverseProxy attack services data
