@@ -131,6 +131,21 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 CALL BuildScripts\Plugins\Systems.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
+
+
+REM REM REM REM
+REM REM REM REM
+REM REM
+REM REM Create build zip file
+REM REM
+REM REM REM REM
+REM REM REM REM
+
+:: Copy Browser Attack plugin data
+CALL BuildScripts\Compress.cmd :CompressFiles BUILDS\%SOLUTIONCONFIG%\ %TIMESTAMP% %BUILD_DIR%
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+
 GOTO :END
 
 :ERROR
