@@ -10,5 +10,4 @@ BUILDS
 
 
 # Files to ignore
-outer.txt # Keeps output from build scripts
-
+outer.txt
