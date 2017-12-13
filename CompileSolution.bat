@@ -2,7 +2,7 @@
 
 SET MSBuildCmd_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsMSBuildCmd.bat"
 
-SET DOTNET_DIR=C:\windows\Microsoft.NET\Framework\v4.0.30319\
+SET DOTNET_DIR=C:\Windows\Microsoft.NET\Framework\v4.0.30319\
 SET MSBUILD=%DOTNET_DIR%msbuild.exe
 SET DOTNET_PLATFORM="Any CPU"
 SET CPP_PLATFORM=x86
@@ -11,7 +11,7 @@ SET PLUGINS_SOLUTION_FILE=Plugins\Plugins.sln
 SET TOOLS_SOLUTION_FILE=Tools\Tools.sln
 SET LIBS_SOLUTION_FILE=Libs\Libs.sln
 SET ATTACKSERVICES_SOLUTION_FILE=AttackServices\AttackServices.sln
-
+SET ROOT_DIR="%cd%"
 SET SOLUTIONCONFIG=%1
 
 IF "%~1" == "" GOTO :EXITUSAGE
@@ -19,12 +19,18 @@ IF "%~1" == "" GOTO :EXITUSAGE
 CLS
 
 IF NOT EXIST %MSBuildCmd_PATH% (
-  ECHO The MS Build command file does not exist
-  GOTO :ERROR
+  ECHO[
+  ECHO[
+  ECHO OOOPS!!  You must set the variable MSBuildCmd_Path to the right location!!
+  ECHO          Open this file in a text editor and customize the variable manually.
+  ECHO[
+  ECHO[
+  GOTO :END
 )
 
 ECHO Load MSBuild command environment
 CALL %MSBuildCmd_PATH% 
+cd %ROOT_DIR%
 
 ECHO Check .NET directory : %DOTNET_DIR%
 IF NOT EXIST "%DOTNET_DIR%" (
