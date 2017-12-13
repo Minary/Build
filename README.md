@@ -8,7 +8,7 @@ As development environment [**Visual Studio Community 2017**](https://www.visual
 
 As git toolset the following software packages have proven useful:
   * [Git for Windows](https://git-for-windows.github.io/)
-  * [Sourcetree] (https://www.sourcetreeapp.com/)
+  * [Sourcetree](https://www.sourcetreeapp.com/)
   
 Make sure "Git for Windows" **bin/ path** is added to the **PATH environment variable** so you can access the tools via command line. This is a precondition before you can continue with the next step.
 
