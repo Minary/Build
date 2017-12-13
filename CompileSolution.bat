@@ -46,30 +46,27 @@ IF not exist "%MINARY_SOLUTION_FILE%" (
 
 
 ECHO Start building Tools solution
-ECHO msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
-msbuild %TOOLS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
+msbuild %TOOLS_SOLUTION_FILE% /t:restore /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Libs solution
-msbuild %LIBS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
+msbuild %LIBS_SOLUTION_FILE% /t:restore /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%CPP_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
-
-
 ECHO Start building AttackServices solution
-msbuild %ATTACKSERVICES_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
+msbuild %ATTACKSERVICES_SOLUTION_FILE% /t:restore /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Minary solution
-msbuild %MINARY_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
+msbuild %MINARY_SOLUTION_FILE% /t:restore /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
 ECHO Start building Plugins solution
-msbuild %PLUGINS_SOLUTION_FILE% /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
+msbuild %PLUGINS_SOLUTION_FILE% /t:restore /t:Clean,Rebuild /p:Configuration=%SOLUTIONCONFIG% /property:Platform=%DOTNET_PLATFORM% /p:WarningLevel=0 /verbosity:m
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
