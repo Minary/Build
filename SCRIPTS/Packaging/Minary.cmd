@@ -98,6 +98,7 @@ ECHO Copying Minary ...
 
 SET MINARY_ROOT=%MINARY_ROOT_DIR%Minary\bin\%SOLUTIONCONFIG%\
 SET DEFAULTDATA_ROOT=DEFAULT_DATA\
+SET EXTERNAL_ROOT=EXTERNAL\
 SET MINARYLIB_ROOT=%MINARY_ROOT_DIR%..\Libs\MinaryLib\bin\%SOLUTIONCONFIG%\
 SET NATIVEWINDOWSLIB_ROOT=%MINARY_ROOT_DIR%..\Libs\NativeWindowsLib\bin\%SOLUTIONCONFIG%\
 
@@ -131,29 +132,25 @@ ECHO copy %MINARYLIB_ROOT%LibGit2Sharp.dll %BUILD_DIR%dll\
 COPY %MINARYLIB_ROOT%LibGit2Sharp.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
+ECHO xcopy /s /c /i %MINARY_ROOT%lib %BUILD_DIR%dll\
+XCOPY /s /c /i %MINARY_ROOT%lib %BUILD_DIR%\dll\lib\ >>%OUTPUTFILE%
+IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+
+
 ECHO xcopy %MINARY_ROOT%Pcap*.dll %BUILD_DIR%dll\
 xcopy /s /c /i %MINARY_ROOT%Pcap*.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
-ECHO xcopy /s /c /i %MINARYLIB_ROOT%lib %BUILD_DIR%dll\
-XCOPY /s /c /i %MINARYLIB_ROOT%lib %BUILD_DIR%\dll\lib\ >>%OUTPUTFILE%
+ECHO xcopy %MINARY_ROOT%RestSharp.dll %BUILD_DIR%dll\
+xcopy /s /c /i %MINARY_ROOT%RestSharp.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
 ECHO[
 ECHO Copying Default data files ...
 
-ECHO COPY %DEFAULTDATA_ROOT%MacVendors.txt %BUILD_DIR%data\ 
-COPY %DEFAULTDATA_ROOT%MacVendors.txt %BUILD_DIR%data\  >>%OUTPUTFILE%
+ECHO COPY %EXTERNAL_ROOT%MacVendors.txt %BUILD_DIR%data\ 
+COPY %EXTERNAL_ROOT%MacVendors.txt %BUILD_DIR%data\  >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
-
-
-REM ECHO[
-REM ECHO Create zip file
- 
-REM IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
-
-
-
 
 EXIT /B 0
 
@@ -164,7 +161,7 @@ EXIT /B 0
 
 :: a function to verify if a file exists and
 :: Ret val  0 : File exists && Size is zero
-:: Ret val  1 : File exists && Size zero is not zero
+:: Ret val  1 : File exists && Size is not zero
 :: Ret val -1 : File does not exist
 :: Ret val -2 : Error!
 

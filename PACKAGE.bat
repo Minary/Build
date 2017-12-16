@@ -60,14 +60,14 @@ REM REM
 REM REM REM REM
 REM REM REM REM
 
-CALL BuildScripts\Minary.cmd :Initialization %SOLUTIONCONFIG% %RELEASE_NAME% %MINARY_DIR% %BUILD_DIR% %ATTACKSERVICES_DIR%
+CALL SCRIPTS\Packaging\Minary.cmd :Initialization %SOLUTIONCONFIG% %RELEASE_NAME% %MINARY_DIR% %BUILD_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
-CALL BuildScripts\Minary.cmd :CreateDirectoryStructure
+CALL SCRIPTS\Packaging\Minary.cmd :CreateDirectoryStructure
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Minary data
-CALL BuildScripts\Minary.cmd :CopyMinaryFiles 
+CALL SCRIPTS\Packaging\Minary.cmd :CopyMinaryFiles 
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
@@ -80,15 +80,15 @@ REM REM REM REM
 REM REM REM REM
 
 :: Copy APE attack services data
-CALL BuildScripts\Attackservices\Ape.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
+CALL SCRIPTS\Packaging\Attackservices\Ape.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Sniffer attack services data
-CALL BuildScripts\Attackservices\Sniffer.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
+CALL SCRIPTS\Packaging\Attackservices\Sniffer.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy HttpReverseProxy attack services data
-CALL BuildScripts\Attackservices\HttpReverseProxy.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
+CALL SCRIPTS\Packaging\Attackservices\HttpReverseProxy.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
@@ -102,55 +102,55 @@ REM REM REM REM
 REM REM REM REM
 
 :: Copy Browser Attack plugin data
-CALL BuildScripts\Plugins\BrowserExploitKit.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\BrowserExploitKit.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy DNS Poisoning plugin data
-CALL BuildScripts\Plugins\DnsPoisoning.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\DnsPoisoning.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy DNS Requests plugin data
-CALL BuildScripts\Plugins\DnsRequests.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\DnsRequests.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Firewall plugin data
-CALL BuildScripts\Plugins\Firewall.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\Firewall.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy HTTP accounts plugin data
-CALL BuildScripts\Plugins\HttpAccounts.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\HttpAccounts.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy HTTP host mapping plugin data
-CALL BuildScripts\Plugins\HttpHostMapping.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\HttpHostMapping.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy HTTP Requests plugin data
-CALL BuildScripts\Plugins\HttpRequests.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\HttpRequests.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy HTTP Request Redirect plugin data
-CALL BuildScripts\Plugins\HttpRequestRedirect.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\HttpRequestRedirect.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Http Inject file plugin data
-CALL BuildScripts\Plugins\HttpInjectFile.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\HttpInjectFile.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Http Inject code plugin data
-CALL BuildScripts\Plugins\HttpInjectCode.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\HttpInjectCode.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Sessions
-CALL BuildScripts\Plugins\Sessions.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\Sessions.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy SSLStrip proxy plugin data
-CALL BuildScripts\Plugins\SslStrip.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\SslStrip.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Systems plugin data
-CALL BuildScripts\Plugins\Systems.cmd :CopyPluginFiles
+CALL SCRIPTS\Packaging\Plugins\Systems.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
@@ -163,10 +163,8 @@ REM REM
 REM REM REM REM
 REM REM REM REM
 
-:: Copy Browser Attack plugin data
-CALL BuildScripts\Compress.cmd :CompressFiles BUILDS\%SOLUTIONCONFIG%\ %RELEASE_NAME% %BUILD_DIR%
+CALL SCRIPTS\Packaging\Compress.cmd :CompressFiles BUILDS\%SOLUTIONCONFIG%\ %RELEASE_NAME% %BUILD_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
-
 
 GOTO :END
 

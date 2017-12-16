@@ -3,10 +3,12 @@
 Libs/
 Minary/
 Plugins/
+!SCRIPTS/Packaging/Plugins/
 Tools/
 AttackServices/
 DEFAULT_DATA
 BUILDS
+LIBRARIES
 
 
 # Files to ignore
