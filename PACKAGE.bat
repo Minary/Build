@@ -80,15 +80,15 @@ REM REM REM REM
 REM REM REM REM
 
 :: Copy APE attack services data
-CALL SCRIPTS\Packaging\Attackservices\Ape.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
+CALL SCRIPTS\Packaging\Attackservices\Ape.cmd :CopyAttackServiceFiles %SOLUTIONCONFIG% %ROOT_DIR% %ATTACKSERVICES_DIR% 
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy Sniffer attack services data
-CALL SCRIPTS\Packaging\Attackservices\Sniffer.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
+CALL SCRIPTS\Packaging\Attackservices\Sniffer.cmd :CopyAttackServiceFiles %SOLUTIONCONFIG% %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 :: Copy HttpReverseProxy attack services data
-CALL SCRIPTS\Packaging\Attackservices\HttpReverseProxy.cmd :CopyAttackServiceFiles %ROOT_DIR% %ATTACKSERVICES_DIR%
+CALL SCRIPTS\Packaging\Attackservices\HttpReverseProxy.cmd :CopyAttackServiceFiles %SOLUTIONCONFIG% %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 
