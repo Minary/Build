@@ -3,13 +3,14 @@
 Libs/
 Minary/
 Plugins/
-!SCRIPTS/Packaging/Plugins/
 Tools/
 AttackServices/
 DEFAULT_DATA
 BUILDS
 LIBRARIES
 
+!SCRIPTS/Packaging/Plugins/
+!SCRIPTS/Packaging/AttackServices/
 
 # Files to ignore
 outer.txt
