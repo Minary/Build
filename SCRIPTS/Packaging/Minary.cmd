@@ -111,9 +111,9 @@ ECHO copy %MINARY_ROOT%Minary.exe.config %BUILD_DIR%
 COPY %MINARY_ROOT%Minary.exe.config %BUILD_DIR% >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
-ECHO copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\
-copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\ >>%OUTPUTFILE%
-IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+REM ECHO copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\
+REM copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\ >>%OUTPUTFILE%
+REM IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
 
 
@@ -128,10 +128,9 @@ ECHO copy %NATIVEWINDOWSLIB_ROOT%NativeWindowsLib.dll %BUILD_DIR%dll\
 COPY %NATIVEWINDOWSLIB_ROOT%NativeWindowsLib.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
-ECHO copy %MINARYLIB_ROOT%LibGit2Sharp.dll %BUILD_DIR%dll\
-COPY %MINARYLIB_ROOT%LibGit2Sharp.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
+ECHO copy %MINARY_ROOT%System.ValueTuple.dll %BUILD_DIR%dll\
+COPY %MINARY_ROOT%System.ValueTuple.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
-
 
 ECHO xcopy %MINARY_ROOT%Pcap*.dll %BUILD_DIR%dll\
 xcopy /s /c /i %MINARY_ROOT%Pcap*.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
