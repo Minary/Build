@@ -35,7 +35,7 @@ The configuration type is either **DEBUG** or **RELEASE**.
 There are no restrictions on the version name. But it is recommended to take the same version string as declared in the Minary code (1.0.4).
 
 ```
-> C:\Users\run\code\Minary\Build> BuildMinaryPacket.bat RELEASE  
+> C:\Users\run\code\Minary\Build> PACKAGE.bat RELEASE 1.0.4
 ```
 
 If all these steps passed without errors, a new Minary package has been created inside the **Build\BUILDS\RELEASE** directory.
