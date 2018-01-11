@@ -111,9 +111,9 @@ ECHO copy %MINARY_ROOT%Minary.exe.config %BUILD_DIR%
 COPY %MINARY_ROOT%Minary.exe.config %BUILD_DIR% >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
-REM ECHO copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\
-REM copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\ >>%OUTPUTFILE%
-REM IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
+ECHO copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\
+copy %MINARY_ROOT_DIR%Minary\Resources\Minary.ico %BUILD_DIR%\images\ >>%OUTPUTFILE%
+IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
 
 
