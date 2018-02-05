@@ -89,8 +89,8 @@ msbuild plugins\Plugin_Firewall\Plugin_Firewall.csproj %MY_TARGETS% %MY_DOTNET_P
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 
 
-ECHO Building Plugin "HttpAccounts"
-msbuild plugins\Plugin_HttpAccounts\Plugin_HttpAccounts.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
+ECHO Building Plugin "HttpSearch"
+msbuild plugins\Plugin_HttpSearch\Plugin_HttpSearch.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 
 

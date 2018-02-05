@@ -117,9 +117,13 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 CALL SCRIPTS\Packaging\Plugins\Firewall.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
-:: Copy HTTP accounts plugin data
-CALL SCRIPTS\Packaging\Plugins\HttpAccounts.cmd :CopyPluginFiles
+
+
+:: Copy HTTP Search plugin data
+CALL SCRIPTS\Packaging\Plugins\HttpSearch.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+
 
 :: Copy HTTP host mapping plugin data
 CALL SCRIPTS\Packaging\Plugins\HttpHostMapping.cmd :CopyPluginFiles
