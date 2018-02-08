@@ -145,10 +145,6 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 CALL SCRIPTS\Packaging\Plugins\HttpInjectCode.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
-:: Copy Sessions
-CALL SCRIPTS\Packaging\Plugins\Sessions.cmd :CopyPluginFiles
-IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
-
 :: Copy SSLStrip proxy plugin data
 CALL SCRIPTS\Packaging\Plugins\SslStrip.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
