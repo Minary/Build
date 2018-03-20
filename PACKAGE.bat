@@ -133,6 +133,10 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 CALL SCRIPTS\Packaging\Plugins\HttpRequests.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
+:: Copy HTTPS Requests plugin data
+CALL SCRIPTS\Packaging\Plugins\HttpsRequests.cmd :CopyPluginFiles
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
 :: Copy HTTP Request Redirect plugin data
 CALL SCRIPTS\Packaging\Plugins\HttpRequestRedirect.cmd :CopyPluginFiles
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR

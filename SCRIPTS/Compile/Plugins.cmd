@@ -119,6 +119,11 @@ msbuild plugins\Plugin_HttpRequests\Plugin_HttpRequests.csproj %MY_TARGETS% %MY_
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 
 
+ECHO Building Plugin "HttpsRequests"
+msbuild plugins\Plugin_HttpsRequests\Plugin_HttpsRequests.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
+IF %ERRORLEVEL% NEQ 0 EXIT /B 1
+
+
 ECHO Building Plugin "SslStrip"
 msbuild plugins\Plugin_SslStrip\Plugin_SslStrip.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
