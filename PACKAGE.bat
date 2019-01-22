@@ -83,6 +83,10 @@ REM REM REM REM
 CALL SCRIPTS\Packaging\Attackservices\Ape.cmd :CopyAttackServiceFiles %SOLUTIONCONFIG% %ROOT_DIR% %ATTACKSERVICES_DIR% 
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
+:: Copy DnsPoisoning attack services data
+CALL SCRIPTS\Packaging\Attackservices\DnsPoisoning.cmd :CopyAttackServiceFiles %SOLUTIONCONFIG% %ROOT_DIR% %ATTACKSERVICES_DIR% 
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
 :: Copy Sniffer attack services data
 CALL SCRIPTS\Packaging\Attackservices\Sniffer.cmd :CopyAttackServiceFiles %SOLUTIONCONFIG% %ROOT_DIR% %ATTACKSERVICES_DIR%
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR

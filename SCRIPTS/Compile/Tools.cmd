@@ -135,8 +135,28 @@ REM REM REM REM
 :BuildApe
 @echo off
 
-ECHO Bilding Ape
+ECHO Building Ape
 msbuild Tools\Ape\Ape.vcxproj %MY_TARGETS% %MY_CPP_PROJ_PARAMS% /nologo /v:m
+IF %ERRORLEVEL% NEQ 0 EXIT /b 1
+ECHO[
+
+EXIT /B 0
+
+
+
+
+REM REM REM REM
+REM REM REM REM
+REM REM
+REM REM Build DnsPoisoning
+REM REM
+REM REM REM REM
+REM REM REM REM
+:BuildDnsPoisoning
+@echo off
+
+ECHO Building DnsPoisoning
+msbuild Tools\DnsPoisoning\DnsPoisoning.vcxproj %MY_TARGETS% %MY_CPP_PROJ_PARAMS% /nologo /v:m
 IF %ERRORLEVEL% NEQ 0 EXIT /b 1
 ECHO[
 
@@ -155,7 +175,7 @@ REM REM REM REM
 :BuildSniffer
 @echo off
 
-ECHO Bilding Sniffer
+ECHO Building Sniffer
 msbuild Tools\Sniffer\Sniffer.vcxproj %MY_TARGETS% %MY_CPP_PROJ_PARAMS% /nologo /v:m
 IF %ERRORLEVEL% NEQ 0 EXIT /b 1
 ECHO[

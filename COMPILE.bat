@@ -75,6 +75,9 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 CALL SCRIPTS\Compile\Tools.cmd :BuildApe
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
+CALL SCRIPTS\Compile\Tools.cmd :BuildDnsPoisoning
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
 CALL SCRIPTS\Compile\Tools.cmd :BuildSniffer
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
@@ -94,6 +97,9 @@ CALL SCRIPTS\Compile\AttackServices.cmd :Initialization %SOLUTIONCONFIG% %CPP_PR
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\AttackServices.cmd :BuildArpPoisoning
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+CALL SCRIPTS\Compile\AttackServices.cmd :BuildDnsPoisoning
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\AttackServices.cmd :BuildSniffer

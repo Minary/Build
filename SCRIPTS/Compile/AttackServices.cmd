@@ -66,8 +66,20 @@ REM REM REM REM
 :BuildArpPoisoning
 @echo off
 
-ECHO Bilding AttackServices
+ECHO Building AttackServices/ArpPoisoning
 msbuild AttackServices\ArpPoisoning\ArpPoisoning.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
+IF %ERRORLEVEL% NEQ 0 EXIT /B 1
+ECHO[
+
+EXIT /B 0
+
+
+
+:BuildDnsPoisoning
+@echo off
+
+ECHO Building AttackServices/DnsPoisoning
+msbuild AttackServices\DnsPoisoning\DnsPoisoning.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 ECHO[
 
@@ -78,7 +90,7 @@ EXIT /B 0
 :BuildSniffer
 @echo off
 
-ECHO Bilding ArpSniffer
+ECHO Bilding AttackServices/ArpSniffer
 msbuild AttackServices\Sniffer\Sniffer.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 ECHO[
@@ -90,7 +102,7 @@ EXIT /B 0
 :BuildHttpReverseProxy
 @echo off
 
-ECHO Bilding HttpReverseProxy
+ECHO Bilding AttackServices/HttpReverseProxy
 msbuild AttackServices\HttpReverseProxy\HttpReverseProxy.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 ECHO[
