@@ -75,6 +75,18 @@ EXIT /B 0
 
 
 
+:BuildRouterIPv4
+@echo off
+
+ECHO Building AttackServices/RouterIPv4
+msbuild AttackServices\RouterIPv4\RouterIPv4.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
+IF %ERRORLEVEL% NEQ 0 EXIT /B 1
+ECHO[
+
+EXIT /B 0
+
+
+
 :BuildDnsPoisoning
 @echo off
 

@@ -60,8 +60,8 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 REM REM REM
 REM REM REM
 REM
-REM
 REM Build Tools
+REM 
 REM REM REM
 REM REM REM
 
@@ -73,6 +73,9 @@ CALL SCRIPTS\Compile\Tools.cmd :BuildHttpReverseProxy
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\Tools.cmd :BuildApe
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+CALL SCRIPTS\Compile\Tools.cmd :BuildRouterIPv4
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\Tools.cmd :BuildDnsPoisoning
@@ -97,6 +100,9 @@ CALL SCRIPTS\Compile\AttackServices.cmd :Initialization %SOLUTIONCONFIG% %CPP_PR
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\AttackServices.cmd :BuildArpPoisoning
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+CALL SCRIPTS\Compile\AttackServices.cmd :BuildRouterIPv4
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\AttackServices.cmd :BuildDnsPoisoning

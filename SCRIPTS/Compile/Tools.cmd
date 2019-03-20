@@ -148,6 +148,26 @@ EXIT /B 0
 REM REM REM REM
 REM REM REM REM
 REM REM
+REM REM Build RouterIPv4
+REM REM
+REM REM REM REM
+REM REM REM REM
+:BuildRouterIPv4
+@echo off
+
+ECHO Building RouterIPv4
+msbuild Tools\RouterIPv4\RouterIPv4.vcxproj %MY_TARGETS% %MY_CPP_PROJ_PARAMS% /nologo /v:m
+IF %ERRORLEVEL% NEQ 0 EXIT /b 1
+ECHO[
+
+EXIT /B 0
+
+
+
+
+REM REM REM REM
+REM REM REM REM
+REM REM
 REM REM Build DnsPoisoning
 REM REM
 REM REM REM REM
