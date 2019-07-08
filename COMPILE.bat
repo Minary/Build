@@ -1,6 +1,6 @@
 @ECHO OFF
 
-SET MSBuildCmd_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\Tools\VsMSBuildCmd.bat"
+SET MSBuildCmd_PATH="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\VsMSBuildCmd.bat"
 
 SET DOTNET_DIR=C:\Windows\Microsoft.NET\Framework\v4.0.30319\
 SET MSBUILD=%DOTNET_DIR%msbuild.exe
