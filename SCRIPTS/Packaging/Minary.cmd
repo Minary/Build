@@ -132,8 +132,8 @@ ECHO copy %MINARY_ROOT%System.ValueTuple.dll %BUILD_DIR%dll\
 COPY %MINARY_ROOT%System.ValueTuple.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
-ECHO xcopy %MINARY_ROOT%Pcap*.dll %BUILD_DIR%dll\
-xcopy /s /c /i %MINARY_ROOT%Pcap*.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
+ECHO xcopy %MINARY_ROOT%SharpPcap*.dll %BUILD_DIR%dll\
+xcopy /s /c /i %MINARY_ROOT%SharpPcap*.dll %BUILD_DIR%dll\ >>%OUTPUTFILE%
 IF %ERRORLEVEL% NEQ 0 EXIT /B %ERRORLEVEL%
 
 ECHO xcopy %MINARY_ROOT%RestSharp.dll %BUILD_DIR%dll\
