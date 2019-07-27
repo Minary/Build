@@ -111,6 +111,18 @@ EXIT /B 0
 
 
 
+:BuildArpScan
+@echo off
+
+ECHO Bilding AttackServices/ArpScan
+msbuild AttackServices\ArpScan\ArpScan.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
+IF %ERRORLEVEL% NEQ 0 EXIT /B 1
+ECHO[
+
+EXIT /B 0
+
+
+
 :BuildHttpReverseProxy
 @echo off
 

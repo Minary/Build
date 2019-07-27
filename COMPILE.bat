@@ -84,6 +84,9 @@ IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 CALL SCRIPTS\Compile\Tools.cmd :BuildSniffer
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
+CALL SCRIPTS\Compile\Tools.cmd :BuildArpScan
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
 
 
 
@@ -109,6 +112,9 @@ CALL SCRIPTS\Compile\AttackServices.cmd :BuildDnsPoisoning
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\AttackServices.cmd :BuildSniffer
+IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
+
+CALL SCRIPTS\Compile\AttackServices.cmd :BuildArpScan
 IF %ERRORLEVEL% NEQ 0 GOTO :ERROR
 
 CALL SCRIPTS\Compile\AttackServices.cmd :BuildHttpReverseProxy

@@ -202,3 +202,23 @@ ECHO[
 
 EXIT /B 0
 
+
+
+
+REM REM REM REM
+REM REM REM REM
+REM REM
+REM REM Build ArpScan
+REM REM
+REM REM REM REM
+REM REM REM REM
+:BuildArpScan
+@echo off
+
+ECHO Building ArpScan
+msbuild Tools\ArpScan\ArpScan.vcxproj %MY_TARGETS% %MY_CPP_PROJ_PARAMS% /nologo /v:m
+IF %ERRORLEVEL% NEQ 0 EXIT /b 1
+ECHO[
+
+EXIT /B 0
+
