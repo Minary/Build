@@ -8,7 +8,7 @@ AttackServices/
 DEFAULT_DATA
 BUILDS
 LIBRARIES
-
+*.BAK/
 !SCRIPTS/Packaging/Plugins/
 !SCRIPTS/Packaging/AttackServices/
 
