@@ -64,7 +64,7 @@ REM REM REM REM
 REM REM REM REM
 :Build 
 @echo off
-ECHO Bilding Minary\Minary [%MY_TARGETS% %DOTNET_PLATFORM% /nologo /v:m]
+ECHO Building Minary\Minary [%MY_TARGETS% %DOTNET_PLATFORM% /nologo /v:m]
 
 msbuild Minary\Minary\Minary.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m
 IF %ERRORLEVEL% NEQ 0 EXIT /b 1

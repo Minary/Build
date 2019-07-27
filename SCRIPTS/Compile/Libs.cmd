@@ -67,7 +67,7 @@ REM REM REM REM
 :BuildMinaryLib
 @echo off
 
-ECHO Bilding MinaryLib
+ECHO Building MinaryLib
 msbuild Libs\MinaryLib\MinaryLib.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 
@@ -80,7 +80,7 @@ EXIT /B 0
 :BuildNativeWindowsLib
 @echo off
 
-ECHO Bilding NativeWindowsLib
+ECHO Building NativeWindowsLib
 msbuild Libs\NativeWindowsLib\NativeWindowsLib.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 

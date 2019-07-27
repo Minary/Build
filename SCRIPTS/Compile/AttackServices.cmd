@@ -8,10 +8,8 @@ EXIT /B
 
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Global functions
+:::: Global functions
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
 
 
 REM REM REM REM
@@ -21,7 +19,9 @@ REM REM Initialize setup environment variables
 REM REM
 REM REM REM REM
 REM REM REM REM
+
 :Initialization
+
 @echo off
 SET MY_SOLUTIONCONFIG=%1
 SET MY_CPP_PROJ_PLATFORM=%2
@@ -102,7 +102,7 @@ EXIT /B 0
 :BuildSniffer
 @echo off
 
-ECHO Bilding AttackServices/ArpSniffer
+ECHO Building AttackServices/ArpSniffer
 msbuild AttackServices\Sniffer\Sniffer.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 ECHO[
@@ -114,7 +114,7 @@ EXIT /B 0
 :BuildArpScan
 @echo off
 
-ECHO Bilding AttackServices/ArpScan
+ECHO Building AttackServices/ArpScan
 msbuild AttackServices\ArpScan\ArpScan.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 ECHO[
@@ -126,7 +126,7 @@ EXIT /B 0
 :BuildHttpReverseProxy
 @echo off
 
-ECHO Bilding AttackServices/HttpReverseProxy
+ECHO Building AttackServices/HttpReverseProxy
 msbuild AttackServices\HttpReverseProxy\HttpReverseProxy.csproj %MY_TARGETS% %MY_DOTNET_PROJ_PARAMS% /nologo /v:m /nologo /verbosity:m
 IF %ERRORLEVEL% NEQ 0 EXIT /B 1
 ECHO[
